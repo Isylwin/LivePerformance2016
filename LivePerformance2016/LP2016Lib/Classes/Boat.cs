@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using LP2016Lib.Enums;
 using LP2016Lib.Interfaces;
 
 namespace LP2016Lib.Classes
@@ -14,6 +15,10 @@ namespace LP2016Lib.Classes
         public string Name { get; }
         public decimal Price { get; }
         /// <summary>
+        /// The type of the boat.
+        /// </summary>
+        public BoatType Type { get; }
+        /// <summary>
         /// The types of water the boat is allowed in.
         /// </summary>
         public List<Water> AllowedIn => new List<Water>(_allowedIn);
@@ -24,12 +29,14 @@ namespace LP2016Lib.Classes
         /// <param name="id">The id of the boat in the database.</param>
         /// <param name="name">The name of the boat.</param>
         /// <param name="price">The price of the boat.</param>
+        /// <param name="type">The type of the boat.</param>
         /// <param name="allowedIn">The types of water the boat is allowed in.</param>
-        protected Boat(int id, string name, decimal price, List<Water> allowedIn)
+        protected Boat(int id, string name, decimal price, BoatType type, List<Water> allowedIn)
         {
             Id = id;
             Name = name;
             Price = price;
+            Type = type;
             _allowedIn = allowedIn;
         }
 

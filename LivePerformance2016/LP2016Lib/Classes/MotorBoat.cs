@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using LP2016Lib.Enums;
 
 namespace LP2016Lib.Classes
 {
@@ -23,10 +24,11 @@ namespace LP2016Lib.Classes
         /// <param name="id">The id of the boat in the database.</param>
         /// <param name="name">The name of the boat.</param>
         /// <param name="price">The price of the boat.</param>
+        /// <param name="type">The type of the boat.</param>
         /// <param name="tank">The volume of the tank.</param>
         /// /// <param name="allowedIn">The waters the boat is allowed in.</param>
-        public MotorBoat(int id, string name, decimal price, int tank, List<Water> allowedIn)
-            : base(id, name, price, allowedIn)
+        public MotorBoat(int id, string name, decimal price, BoatType type, int tank, List<Water> allowedIn)
+            : base(id, name, price, type, allowedIn)
         {
             Tank = tank;
         }
