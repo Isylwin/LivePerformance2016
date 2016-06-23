@@ -1,17 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using LP2016Database.Context;
 using LP2016Database.Models;
 using LP2016Lib.Classes;
-using LP2016Lib.Interfaces;
 
 namespace LP2016Logic.Repositories
 {
     public class SaveRepository
     {
         private static SaveRepository _instance;
-        private ISaveContext _context;
+        private readonly ISaveContext _context;
 
         public static SaveRepository Instance => _instance ?? (_instance = new SaveRepository());
 
@@ -31,8 +29,7 @@ namespace LP2016Logic.Repositories
                 _context.SaveContract(contract);
             }
             catch (Exception)
-            {
-                
+            {               
                 throw;
             }
         }
@@ -41,12 +38,16 @@ namespace LP2016Logic.Repositories
         {
             try
             {
+                //TODO email check in a utility class and include here.
+                //TODO custom exceptions.
+                if(string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(email))
+                    throw new Exception("Naam of email is niet ingevuld.");
+
                 var renter = new Renter(name, email);
                 _context.SaveRenter(renter);
             }
             catch (Exception)
-            {
-                
+            {            
                 throw;
             }
         }
