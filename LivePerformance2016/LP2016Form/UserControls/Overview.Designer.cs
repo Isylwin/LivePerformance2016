@@ -45,12 +45,19 @@
             this.tbDetailsRenter = new System.Windows.Forms.TextBox();
             this.gbContracts = new System.Windows.Forms.GroupBox();
             this.lbContracts = new System.Windows.Forms.ListBox();
+            this.gbContractTemprature = new System.Windows.Forms.GroupBox();
+            this.dgvContractTemprature = new System.Windows.Forms.DataGridView();
+            this.colDay = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTemp = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbContractDetails.SuspendLayout();
             this.gbContracts.SuspendLayout();
+            this.gbContractTemprature.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvContractTemprature)).BeginInit();
             this.SuspendLayout();
             // 
             // gbContractDetails
             // 
+            this.gbContractDetails.Controls.Add(this.gbContractTemprature);
             this.gbContractDetails.Controls.Add(this.lblDetailsLoaner);
             this.gbContractDetails.Controls.Add(this.tbDetailsLoaner);
             this.gbContractDetails.Controls.Add(this.btnDetailsExportHtml);
@@ -92,7 +99,7 @@
             // btnDetailsExportHtml
             // 
             this.btnDetailsExportHtml.Enabled = false;
-            this.btnDetailsExportHtml.Location = new System.Drawing.Point(379, 369);
+            this.btnDetailsExportHtml.Location = new System.Drawing.Point(379, 424);
             this.btnDetailsExportHtml.Name = "btnDetailsExportHtml";
             this.btnDetailsExportHtml.Size = new System.Drawing.Size(194, 23);
             this.btnDetailsExportHtml.TabIndex = 11;
@@ -102,7 +109,7 @@
             // btnDetailsExportTxt
             // 
             this.btnDetailsExportTxt.Enabled = false;
-            this.btnDetailsExportTxt.Location = new System.Drawing.Point(30, 369);
+            this.btnDetailsExportTxt.Location = new System.Drawing.Point(379, 395);
             this.btnDetailsExportTxt.Name = "btnDetailsExportTxt";
             this.btnDetailsExportTxt.Size = new System.Drawing.Size(194, 23);
             this.btnDetailsExportTxt.TabIndex = 10;
@@ -216,6 +223,43 @@
             this.lbContracts.TabIndex = 0;
             this.lbContracts.SelectedIndexChanged += new System.EventHandler(this.lbContracts_SelectedIndexChanged);
             // 
+            // gbContractTemprature
+            // 
+            this.gbContractTemprature.Controls.Add(this.dgvContractTemprature);
+            this.gbContractTemprature.Location = new System.Drawing.Point(22, 341);
+            this.gbContractTemprature.Name = "gbContractTemprature";
+            this.gbContractTemprature.Size = new System.Drawing.Size(224, 222);
+            this.gbContractTemprature.TabIndex = 56;
+            this.gbContractTemprature.TabStop = false;
+            this.gbContractTemprature.Text = "Temperatuur";
+            // 
+            // dgvContractTemprature
+            // 
+            this.dgvContractTemprature.AllowUserToAddRows = false;
+            this.dgvContractTemprature.AllowUserToDeleteRows = false;
+            this.dgvContractTemprature.AllowUserToOrderColumns = true;
+            this.dgvContractTemprature.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvContractTemprature.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colDay,
+            this.colTemp});
+            this.dgvContractTemprature.Enabled = false;
+            this.dgvContractTemprature.Location = new System.Drawing.Point(6, 19);
+            this.dgvContractTemprature.Name = "dgvContractTemprature";
+            this.dgvContractTemprature.RowHeadersVisible = false;
+            this.dgvContractTemprature.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvContractTemprature.Size = new System.Drawing.Size(206, 197);
+            this.dgvContractTemprature.TabIndex = 0;
+            // 
+            // colDay
+            // 
+            this.colDay.HeaderText = "Dag";
+            this.colDay.Name = "colDay";
+            // 
+            // colTemp
+            // 
+            this.colTemp.HeaderText = "Temperatuur";
+            this.colTemp.Name = "colTemp";
+            // 
             // Overview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -227,6 +271,8 @@
             this.gbContractDetails.ResumeLayout(false);
             this.gbContractDetails.PerformLayout();
             this.gbContracts.ResumeLayout(false);
+            this.gbContractTemprature.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvContractTemprature)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -250,5 +296,9 @@
         private System.Windows.Forms.TextBox tbDetailsRenter;
         private System.Windows.Forms.GroupBox gbContracts;
         private System.Windows.Forms.ListBox lbContracts;
+        private System.Windows.Forms.GroupBox gbContractTemprature;
+        private System.Windows.Forms.DataGridView dgvContractTemprature;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDay;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colTemp;
     }
 }

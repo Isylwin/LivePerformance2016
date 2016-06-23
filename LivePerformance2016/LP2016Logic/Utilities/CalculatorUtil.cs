@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using LP2016Lib.Classes;
 using LP2016Lib.Enums;
 using LP2016Logic.Repositories;

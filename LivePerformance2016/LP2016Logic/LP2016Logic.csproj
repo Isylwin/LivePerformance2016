@@ -52,6 +52,7 @@
     <Compile Include="Utilities\CalculatorUtil.cs" />
     <Compile Include="Utilities\ExceptionUtil.cs" />
     <Compile Include="Utilities\ExportUtil.cs" />
+    <Compile Include="Utilities\TempratureUtil.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LP2016Database\LP2016Database.csproj">

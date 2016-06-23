@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using LP2016Lib.Classes;
 using LP2016Logic.Repositories;
 using LP2016Logic.Utilities;
+using static LP2016Logic.Utilities.TempratureUtil;
 
 namespace LP2016Form.UserControls
 {
@@ -37,6 +38,7 @@ namespace LP2016Form.UserControls
         {
             lbDetailsBoats.Items.Clear();
             lbDetailsArticles.Items.Clear();
+            dgvContractTemprature.Rows.Clear();
 
             btnDetailsExportTxt.Enabled = lbContracts.SelectedItem != null;
             btnDetailsExportHtml.Enabled = lbContracts.SelectedItem != null;
@@ -53,6 +55,13 @@ namespace LP2016Form.UserControls
 
             dtpDetailsDateFrom.Value = contract.StartDate;
             dtpDetailsDateTill.Value = contract.EndDate;
+
+            var result = GetTempratureForContract(contract);
+
+            foreach (var pair in result)
+            {
+                dgvContractTemprature.Rows.Add(pair.Key, pair.Value);
+            }
         }
 
         private void btnDetailsExportTxt_Click(object sender, EventArgs e)
