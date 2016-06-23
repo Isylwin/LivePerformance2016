@@ -40,11 +40,11 @@ namespace LP2016Database.Context
                 {
                     Direction = ParameterDirection.Input
                 },
-                new OracleParameter("p_startDate", contract.StartDate.ToShortDateString())
+                new OracleParameter("p_startDate", contract.StartDate.ToString("dd-MM-yyyy"))
                 {
                     Direction = ParameterDirection.Input
                 },
-                new OracleParameter("p_endDate", contract.EndDate.ToShortDateString())
+                new OracleParameter("p_endDate", contract.EndDate.ToString("dd-MM-yyyy"))
                 {
                     Direction = ParameterDirection.Input
                 },

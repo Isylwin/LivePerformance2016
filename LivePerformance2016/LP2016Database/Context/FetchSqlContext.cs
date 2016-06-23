@@ -58,8 +58,8 @@ namespace LP2016Database.Context
                     var email = reader.GetString(2);
                     var renter = new Renter(renterId, name, email);
                     var id = reader.GetInt32(3);
-                    var startDate = DateTime.ParseExact(reader.GetString(4), "dd-M-yyyy", CultureInfo.InvariantCulture);
-                    var endDate = DateTime.ParseExact(reader.GetString(5), "dd-M-yyyy", CultureInfo.InvariantCulture);
+                    var startDate = DateTime.ParseExact(reader.GetString(4), "dd-MM-yyyy", CultureInfo.InvariantCulture);
+                    var endDate = DateTime.ParseExact(reader.GetString(5), "dd-MM-yyyy", CultureInfo.InvariantCulture);
                     var items = new List<IRentable>();
                     items.AddRange(GetBoatsFor(id));
                     items.AddRange(GetArticlesFor(id));
@@ -224,7 +224,7 @@ namespace LP2016Database.Context
 
         public List<Water> GetAllWaters()
         {
-            const string spName = "GetAllRenters";
+            const string spName = "GetAllWaters";
 
             var parameters = new List<OracleParameter>
             {
@@ -240,8 +240,8 @@ namespace LP2016Database.Context
                     var id = reader.GetInt32(0);
                     var name = reader.GetString(1);
                     var price = reader.GetDecimal(2);
-                    var limit = reader.IsDBNull(3) ? reader.GetInt32(3) : -1;
-                    var priceExtra = reader.IsDBNull(4) ? reader.GetDecimal(4) : 0;
+                    var limit = !reader.IsDBNull(3) ? reader.GetInt32(3) : -1;
+                    var priceExtra = !reader.IsDBNull(4) ? reader.GetDecimal(4) : 0;
                     var type = (WaterType)Enum.Parse(typeof(WaterType), reader.GetString(5));
 
                     ret.Add(new Water(id, name, price, type, limit, priceExtra));
