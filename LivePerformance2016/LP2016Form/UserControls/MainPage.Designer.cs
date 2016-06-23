@@ -30,11 +30,7 @@
         {
             this.lblContractBoatName = new System.Windows.Forms.Label();
             this.cbContractBoatType = new System.Windows.Forms.ComboBox();
-            this.gbContractTemprature = new System.Windows.Forms.GroupBox();
-            this.dgvContractTemprature = new System.Windows.Forms.DataGridView();
-            this.colDay = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTemp = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cbContractArticleAdd = new System.Windows.Forms.Button();
+            this.btnContractArticleAdd = new System.Windows.Forms.Button();
             this.btnContractBoatAdd = new System.Windows.Forms.Button();
             this.cbContractArticle = new System.Windows.Forms.ComboBox();
             this.cbContractBoatName = new System.Windows.Forms.ComboBox();
@@ -57,6 +53,7 @@
             this.dtpContractDateTill = new System.Windows.Forms.DateTimePicker();
             this.lblContractRenter = new System.Windows.Forms.Label();
             this.gbCalculator = new System.Windows.Forms.GroupBox();
+            this.btnCalculator = new System.Windows.Forms.Button();
             this.lblContractResult = new System.Windows.Forms.Label();
             this.lblContractLakes = new System.Windows.Forms.Label();
             this.chbContractIJselmeer = new System.Windows.Forms.CheckBox();
@@ -70,8 +67,6 @@
             this.lblName = new System.Windows.Forms.Label();
             this.gbContractAddUser = new System.Windows.Forms.GroupBox();
             this.gbContract = new System.Windows.Forms.GroupBox();
-            this.gbContractTemprature.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvContractTemprature)).BeginInit();
             this.gbContractArticles.SuspendLayout();
             this.gbCalculator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudContractBudget)).BeginInit();
@@ -90,79 +85,58 @@
             // 
             // cbContractBoatType
             // 
+            this.cbContractBoatType.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cbContractBoatType.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbContractBoatType.FormattingEnabled = true;
             this.cbContractBoatType.Location = new System.Drawing.Point(14, 84);
             this.cbContractBoatType.Name = "cbContractBoatType";
             this.cbContractBoatType.Size = new System.Drawing.Size(251, 21);
             this.cbContractBoatType.TabIndex = 56;
+            this.cbContractBoatType.SelectedIndexChanged += new System.EventHandler(this.PopulateBoatComboBox);
             // 
-            // gbContractTemprature
+            // btnContractArticleAdd
             // 
-            this.gbContractTemprature.Controls.Add(this.dgvContractTemprature);
-            this.gbContractTemprature.Location = new System.Drawing.Point(8, 256);
-            this.gbContractTemprature.Name = "gbContractTemprature";
-            this.gbContractTemprature.Size = new System.Drawing.Size(293, 222);
-            this.gbContractTemprature.TabIndex = 55;
-            this.gbContractTemprature.TabStop = false;
-            this.gbContractTemprature.Text = "Temperatuur";
-            // 
-            // dgvContractTemprature
-            // 
-            this.dgvContractTemprature.AllowUserToAddRows = false;
-            this.dgvContractTemprature.AllowUserToDeleteRows = false;
-            this.dgvContractTemprature.AllowUserToOrderColumns = true;
-            this.dgvContractTemprature.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvContractTemprature.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colDay,
-            this.colTemp});
-            this.dgvContractTemprature.Location = new System.Drawing.Point(6, 19);
-            this.dgvContractTemprature.Name = "dgvContractTemprature";
-            this.dgvContractTemprature.Size = new System.Drawing.Size(281, 197);
-            this.dgvContractTemprature.TabIndex = 0;
-            // 
-            // colDay
-            // 
-            this.colDay.HeaderText = "Dag";
-            this.colDay.Name = "colDay";
-            // 
-            // colTemp
-            // 
-            this.colTemp.HeaderText = "Tempratuur";
-            this.colTemp.Name = "colTemp";
-            // 
-            // cbContractArticleAdd
-            // 
-            this.cbContractArticleAdd.Location = new System.Drawing.Point(345, 157);
-            this.cbContractArticleAdd.Name = "cbContractArticleAdd";
-            this.cbContractArticleAdd.Size = new System.Drawing.Size(107, 23);
-            this.cbContractArticleAdd.TabIndex = 54;
-            this.cbContractArticleAdd.Text = "Voeg toe";
-            this.cbContractArticleAdd.UseVisualStyleBackColor = true;
+            this.btnContractArticleAdd.Enabled = false;
+            this.btnContractArticleAdd.Location = new System.Drawing.Point(345, 157);
+            this.btnContractArticleAdd.Name = "btnContractArticleAdd";
+            this.btnContractArticleAdd.Size = new System.Drawing.Size(107, 23);
+            this.btnContractArticleAdd.TabIndex = 54;
+            this.btnContractArticleAdd.Text = "Voeg toe";
+            this.btnContractArticleAdd.UseVisualStyleBackColor = true;
+            this.btnContractArticleAdd.Click += new System.EventHandler(this.btnContractArticleAdd_Click);
             // 
             // btnContractBoatAdd
             // 
+            this.btnContractBoatAdd.Enabled = false;
             this.btnContractBoatAdd.Location = new System.Drawing.Point(11, 157);
             this.btnContractBoatAdd.Name = "btnContractBoatAdd";
             this.btnContractBoatAdd.Size = new System.Drawing.Size(107, 23);
             this.btnContractBoatAdd.TabIndex = 53;
             this.btnContractBoatAdd.Text = "Voeg toe";
             this.btnContractBoatAdd.UseVisualStyleBackColor = true;
+            this.btnContractBoatAdd.Click += new System.EventHandler(this.btnContractBoatAdd_Click);
             // 
             // cbContractArticle
             // 
+            this.cbContractArticle.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cbContractArticle.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbContractArticle.FormattingEnabled = true;
             this.cbContractArticle.Location = new System.Drawing.Point(345, 84);
             this.cbContractArticle.Name = "cbContractArticle";
             this.cbContractArticle.Size = new System.Drawing.Size(264, 21);
             this.cbContractArticle.TabIndex = 52;
+            this.cbContractArticle.SelectedIndexChanged += new System.EventHandler(this.cbContractArticle_SelectedIndexChanged);
             // 
             // cbContractBoatName
             // 
+            this.cbContractBoatName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cbContractBoatName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbContractBoatName.FormattingEnabled = true;
             this.cbContractBoatName.Location = new System.Drawing.Point(14, 123);
             this.cbContractBoatName.Name = "cbContractBoatName";
             this.cbContractBoatName.Size = new System.Drawing.Size(251, 21);
             this.cbContractBoatName.TabIndex = 51;
+            this.cbContractBoatName.SelectedIndexChanged += new System.EventHandler(this.cbContractBoatName_SelectedIndexChanged);
             // 
             // lblContractArticle
             // 
@@ -184,6 +158,8 @@
             // 
             // cbContractRenter
             // 
+            this.cbContractRenter.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cbContractRenter.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbContractRenter.FormattingEnabled = true;
             this.cbContractRenter.Location = new System.Drawing.Point(14, 35);
             this.cbContractRenter.Name = "cbContractRenter";
@@ -207,21 +183,25 @@
             // 
             // btnContractArticleRemove
             // 
+            this.btnContractArticleRemove.Enabled = false;
             this.btnContractArticleRemove.Location = new System.Drawing.Point(20, 358);
             this.btnContractArticleRemove.Name = "btnContractArticleRemove";
             this.btnContractArticleRemove.Size = new System.Drawing.Size(140, 23);
             this.btnContractArticleRemove.TabIndex = 21;
             this.btnContractArticleRemove.Text = "Verwijder";
             this.btnContractArticleRemove.UseVisualStyleBackColor = true;
+            this.btnContractArticleRemove.Click += new System.EventHandler(this.btnContractArticleRemove_Click);
             // 
             // btnContractBoatRemove
             // 
+            this.btnContractBoatRemove.Enabled = false;
             this.btnContractBoatRemove.Location = new System.Drawing.Point(20, 166);
             this.btnContractBoatRemove.Name = "btnContractBoatRemove";
             this.btnContractBoatRemove.Size = new System.Drawing.Size(140, 23);
             this.btnContractBoatRemove.TabIndex = 20;
             this.btnContractBoatRemove.Text = "Verwijder";
             this.btnContractBoatRemove.UseVisualStyleBackColor = true;
+            this.btnContractBoatRemove.Click += new System.EventHandler(this.btnContractBoatRemove_Click);
             // 
             // lbContractBoats
             // 
@@ -230,6 +210,7 @@
             this.lbContractBoats.Name = "lbContractBoats";
             this.lbContractBoats.Size = new System.Drawing.Size(317, 121);
             this.lbContractBoats.TabIndex = 16;
+            this.lbContractBoats.SelectedIndexChanged += new System.EventHandler(this.lbContractBoats_SelectedIndexChanged);
             // 
             // lblContractArticlesBoats
             // 
@@ -247,6 +228,7 @@
             this.lbContractArticles.Name = "lbContractArticles";
             this.lbContractArticles.Size = new System.Drawing.Size(317, 121);
             this.lbContractArticles.TabIndex = 19;
+            this.lbContractArticles.SelectedIndexChanged += new System.EventHandler(this.lbContractArticles_SelectedIndexChanged);
             // 
             // lblContractArticlesArticle
             // 
@@ -283,6 +265,7 @@
             this.btnContractSave.TabIndex = 44;
             this.btnContractSave.Text = "Contract opslaan";
             this.btnContractSave.UseVisualStyleBackColor = true;
+            this.btnContractSave.Click += new System.EventHandler(this.btnContractSave_Click);
             // 
             // lblContractDateTill
             // 
@@ -308,6 +291,7 @@
             this.dtpContractDateFrom.Name = "dtpContractDateFrom";
             this.dtpContractDateFrom.Size = new System.Drawing.Size(200, 20);
             this.dtpContractDateFrom.TabIndex = 41;
+            this.dtpContractDateFrom.ValueChanged += new System.EventHandler(this.dtpContractDateFrom_ValueChanged);
             // 
             // dtpContractDateTill
             // 
@@ -315,6 +299,7 @@
             this.dtpContractDateTill.Name = "dtpContractDateTill";
             this.dtpContractDateTill.Size = new System.Drawing.Size(200, 20);
             this.dtpContractDateTill.TabIndex = 40;
+            this.dtpContractDateTill.ValueChanged += new System.EventHandler(this.dtpContractDateTill_ValueChanged);
             // 
             // lblContractRenter
             // 
@@ -327,6 +312,7 @@
             // 
             // gbCalculator
             // 
+            this.gbCalculator.Controls.Add(this.btnCalculator);
             this.gbCalculator.Controls.Add(this.lblContractResult);
             this.gbCalculator.Controls.Add(this.lblContractLakes);
             this.gbCalculator.Controls.Add(this.chbContractIJselmeer);
@@ -335,24 +321,34 @@
             this.gbCalculator.Controls.Add(this.nudContractBudget);
             this.gbCalculator.Location = new System.Drawing.Point(659, 441);
             this.gbCalculator.Name = "gbCalculator";
-            this.gbCalculator.Size = new System.Drawing.Size(356, 153);
+            this.gbCalculator.Size = new System.Drawing.Size(356, 193);
             this.gbCalculator.TabIndex = 58;
             this.gbCalculator.TabStop = false;
             this.gbCalculator.Text = "Calculator";
             // 
+            // btnCalculator
+            // 
+            this.btnCalculator.Location = new System.Drawing.Point(216, 155);
+            this.btnCalculator.Name = "btnCalculator";
+            this.btnCalculator.Size = new System.Drawing.Size(121, 23);
+            this.btnCalculator.TabIndex = 64;
+            this.btnCalculator.Text = "Bereken";
+            this.btnCalculator.UseVisualStyleBackColor = true;
+            this.btnCalculator.Click += new System.EventHandler(this.btnCalculator_Click);
+            // 
             // lblContractResult
             // 
             this.lblContractResult.AutoSize = true;
-            this.lblContractResult.Location = new System.Drawing.Point(136, 127);
+            this.lblContractResult.Location = new System.Drawing.Point(113, 160);
             this.lblContractResult.Name = "lblContractResult";
             this.lblContractResult.Size = new System.Drawing.Size(13, 13);
             this.lblContractResult.TabIndex = 63;
-            this.lblContractResult.Text = "5";
+            this.lblContractResult.Text = "0";
             // 
             // lblContractLakes
             // 
             this.lblContractLakes.AutoSize = true;
-            this.lblContractLakes.Location = new System.Drawing.Point(26, 127);
+            this.lblContractLakes.Location = new System.Drawing.Point(17, 160);
             this.lblContractLakes.Name = "lblContractLakes";
             this.lblContractLakes.Size = new System.Drawing.Size(70, 13);
             this.lblContractLakes.TabIndex = 62;
@@ -407,6 +403,7 @@
             this.btnAddUser.TabIndex = 63;
             this.btnAddUser.Text = "Voeg Toe";
             this.btnAddUser.UseVisualStyleBackColor = true;
+            this.btnAddUser.Click += new System.EventHandler(this.btnAddUser_Click);
             // 
             // tbEmail
             // 
@@ -464,9 +461,8 @@
             this.gbContract.Controls.Add(this.dtpContractDateFrom);
             this.gbContract.Controls.Add(this.cbContractBoatType);
             this.gbContract.Controls.Add(this.lblContractDateFrom);
-            this.gbContract.Controls.Add(this.gbContractTemprature);
             this.gbContract.Controls.Add(this.lblContractDateTill);
-            this.gbContract.Controls.Add(this.cbContractArticleAdd);
+            this.gbContract.Controls.Add(this.btnContractArticleAdd);
             this.gbContract.Controls.Add(this.btnContractSave);
             this.gbContract.Controls.Add(this.btnContractBoatAdd);
             this.gbContract.Controls.Add(this.tbContractLoaner);
@@ -492,8 +488,6 @@
             this.Controls.Add(this.gbContractArticles);
             this.Name = "MainPage";
             this.Size = new System.Drawing.Size(1060, 659);
-            this.gbContractTemprature.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvContractTemprature)).EndInit();
             this.gbContractArticles.ResumeLayout(false);
             this.gbContractArticles.PerformLayout();
             this.gbCalculator.ResumeLayout(false);
@@ -511,11 +505,7 @@
 
         private System.Windows.Forms.Label lblContractBoatName;
         private System.Windows.Forms.ComboBox cbContractBoatType;
-        private System.Windows.Forms.GroupBox gbContractTemprature;
-        private System.Windows.Forms.DataGridView dgvContractTemprature;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colDay;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colTemp;
-        private System.Windows.Forms.Button cbContractArticleAdd;
+        private System.Windows.Forms.Button btnContractArticleAdd;
         private System.Windows.Forms.Button btnContractBoatAdd;
         private System.Windows.Forms.ComboBox cbContractArticle;
         private System.Windows.Forms.ComboBox cbContractBoatName;
@@ -551,5 +541,6 @@
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.GroupBox gbContractAddUser;
         private System.Windows.Forms.GroupBox gbContract;
+        private System.Windows.Forms.Button btnCalculator;
     }
 }

@@ -30,41 +30,48 @@
         {
             this.gbContractDetails = new System.Windows.Forms.GroupBox();
             this.lblDetailsLoaner = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.tbDetailsLoaner = new System.Windows.Forms.TextBox();
             this.btnDetailsExportHtml = new System.Windows.Forms.Button();
             this.btnDetailsExportTxt = new System.Windows.Forms.Button();
             this.lblDateTill = new System.Windows.Forms.Label();
             this.lblDateFrom = new System.Windows.Forms.Label();
-            this.dtpDetailsFrom = new System.Windows.Forms.DateTimePicker();
-            this.dtmDetailsTill = new System.Windows.Forms.DateTimePicker();
+            this.dtpDetailsDateFrom = new System.Windows.Forms.DateTimePicker();
+            this.dtpDetailsDateTill = new System.Windows.Forms.DateTimePicker();
             this.lbDetailsArticles = new System.Windows.Forms.ListBox();
             this.lblDetailsArticles = new System.Windows.Forms.Label();
             this.lblDetailsBoats = new System.Windows.Forms.Label();
             this.lbDetailsBoats = new System.Windows.Forms.ListBox();
             this.lblDetailsRenter = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbDetailsRenter = new System.Windows.Forms.TextBox();
             this.gbContracts = new System.Windows.Forms.GroupBox();
             this.lbContracts = new System.Windows.Forms.ListBox();
+            this.gbContractTemprature = new System.Windows.Forms.GroupBox();
+            this.dgvContractTemprature = new System.Windows.Forms.DataGridView();
+            this.colDay = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTemp = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbContractDetails.SuspendLayout();
             this.gbContracts.SuspendLayout();
+            this.gbContractTemprature.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvContractTemprature)).BeginInit();
             this.SuspendLayout();
             // 
             // gbContractDetails
             // 
+            this.gbContractDetails.Controls.Add(this.gbContractTemprature);
             this.gbContractDetails.Controls.Add(this.lblDetailsLoaner);
-            this.gbContractDetails.Controls.Add(this.textBox2);
+            this.gbContractDetails.Controls.Add(this.tbDetailsLoaner);
             this.gbContractDetails.Controls.Add(this.btnDetailsExportHtml);
             this.gbContractDetails.Controls.Add(this.btnDetailsExportTxt);
             this.gbContractDetails.Controls.Add(this.lblDateTill);
             this.gbContractDetails.Controls.Add(this.lblDateFrom);
-            this.gbContractDetails.Controls.Add(this.dtpDetailsFrom);
-            this.gbContractDetails.Controls.Add(this.dtmDetailsTill);
+            this.gbContractDetails.Controls.Add(this.dtpDetailsDateFrom);
+            this.gbContractDetails.Controls.Add(this.dtpDetailsDateTill);
             this.gbContractDetails.Controls.Add(this.lbDetailsArticles);
             this.gbContractDetails.Controls.Add(this.lblDetailsArticles);
             this.gbContractDetails.Controls.Add(this.lblDetailsBoats);
             this.gbContractDetails.Controls.Add(this.lbDetailsBoats);
             this.gbContractDetails.Controls.Add(this.lblDetailsRenter);
-            this.gbContractDetails.Controls.Add(this.textBox1);
+            this.gbContractDetails.Controls.Add(this.tbDetailsRenter);
             this.gbContractDetails.Location = new System.Drawing.Point(356, 13);
             this.gbContractDetails.Name = "gbContractDetails";
             this.gbContractDetails.Size = new System.Drawing.Size(694, 633);
@@ -81,17 +88,18 @@
             this.lblDetailsLoaner.TabIndex = 13;
             this.lblDetailsLoaner.Text = "Verhuurder";
             // 
-            // textBox2
+            // tbDetailsLoaner
             // 
-            this.textBox2.Enabled = false;
-            this.textBox2.Location = new System.Drawing.Point(379, 47);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(264, 20);
-            this.textBox2.TabIndex = 12;
+            this.tbDetailsLoaner.Enabled = false;
+            this.tbDetailsLoaner.Location = new System.Drawing.Point(379, 47);
+            this.tbDetailsLoaner.Name = "tbDetailsLoaner";
+            this.tbDetailsLoaner.Size = new System.Drawing.Size(264, 20);
+            this.tbDetailsLoaner.TabIndex = 12;
             // 
             // btnDetailsExportHtml
             // 
-            this.btnDetailsExportHtml.Location = new System.Drawing.Point(379, 369);
+            this.btnDetailsExportHtml.Enabled = false;
+            this.btnDetailsExportHtml.Location = new System.Drawing.Point(379, 424);
             this.btnDetailsExportHtml.Name = "btnDetailsExportHtml";
             this.btnDetailsExportHtml.Size = new System.Drawing.Size(194, 23);
             this.btnDetailsExportHtml.TabIndex = 11;
@@ -100,12 +108,14 @@
             // 
             // btnDetailsExportTxt
             // 
-            this.btnDetailsExportTxt.Location = new System.Drawing.Point(30, 369);
+            this.btnDetailsExportTxt.Enabled = false;
+            this.btnDetailsExportTxt.Location = new System.Drawing.Point(379, 395);
             this.btnDetailsExportTxt.Name = "btnDetailsExportTxt";
             this.btnDetailsExportTxt.Size = new System.Drawing.Size(194, 23);
             this.btnDetailsExportTxt.TabIndex = 10;
             this.btnDetailsExportTxt.Text = "Exporteren naar tekst";
             this.btnDetailsExportTxt.UseVisualStyleBackColor = true;
+            this.btnDetailsExportTxt.Click += new System.EventHandler(this.btnDetailsExportTxt_Click);
             // 
             // lblDateTill
             // 
@@ -125,21 +135,21 @@
             this.lblDateFrom.TabIndex = 8;
             this.lblDateFrom.Text = "Datum van:";
             // 
-            // dtpDetailsFrom
+            // dtpDetailsDateFrom
             // 
-            this.dtpDetailsFrom.Enabled = false;
-            this.dtpDetailsFrom.Location = new System.Drawing.Point(24, 281);
-            this.dtpDetailsFrom.Name = "dtpDetailsFrom";
-            this.dtpDetailsFrom.Size = new System.Drawing.Size(200, 20);
-            this.dtpDetailsFrom.TabIndex = 7;
+            this.dtpDetailsDateFrom.Enabled = false;
+            this.dtpDetailsDateFrom.Location = new System.Drawing.Point(24, 281);
+            this.dtpDetailsDateFrom.Name = "dtpDetailsDateFrom";
+            this.dtpDetailsDateFrom.Size = new System.Drawing.Size(200, 20);
+            this.dtpDetailsDateFrom.TabIndex = 7;
             // 
-            // dtmDetailsTill
+            // dtpDetailsDateTill
             // 
-            this.dtmDetailsTill.Enabled = false;
-            this.dtmDetailsTill.Location = new System.Drawing.Point(379, 281);
-            this.dtmDetailsTill.Name = "dtmDetailsTill";
-            this.dtmDetailsTill.Size = new System.Drawing.Size(200, 20);
-            this.dtmDetailsTill.TabIndex = 6;
+            this.dtpDetailsDateTill.Enabled = false;
+            this.dtpDetailsDateTill.Location = new System.Drawing.Point(379, 281);
+            this.dtpDetailsDateTill.Name = "dtpDetailsDateTill";
+            this.dtpDetailsDateTill.Size = new System.Drawing.Size(200, 20);
+            this.dtpDetailsDateTill.TabIndex = 6;
             // 
             // lbDetailsArticles
             // 
@@ -186,13 +196,13 @@
             this.lblDetailsRenter.TabIndex = 1;
             this.lblDetailsRenter.Text = "Huurder:";
             // 
-            // textBox1
+            // tbDetailsRenter
             // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(24, 47);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(291, 20);
-            this.textBox1.TabIndex = 0;
+            this.tbDetailsRenter.Enabled = false;
+            this.tbDetailsRenter.Location = new System.Drawing.Point(24, 47);
+            this.tbDetailsRenter.Name = "tbDetailsRenter";
+            this.tbDetailsRenter.Size = new System.Drawing.Size(291, 20);
+            this.tbDetailsRenter.TabIndex = 0;
             // 
             // gbContracts
             // 
@@ -211,6 +221,44 @@
             this.lbContracts.Name = "lbContracts";
             this.lbContracts.Size = new System.Drawing.Size(328, 602);
             this.lbContracts.TabIndex = 0;
+            this.lbContracts.SelectedIndexChanged += new System.EventHandler(this.lbContracts_SelectedIndexChanged);
+            // 
+            // gbContractTemprature
+            // 
+            this.gbContractTemprature.Controls.Add(this.dgvContractTemprature);
+            this.gbContractTemprature.Location = new System.Drawing.Point(22, 341);
+            this.gbContractTemprature.Name = "gbContractTemprature";
+            this.gbContractTemprature.Size = new System.Drawing.Size(224, 222);
+            this.gbContractTemprature.TabIndex = 56;
+            this.gbContractTemprature.TabStop = false;
+            this.gbContractTemprature.Text = "Temperatuur";
+            // 
+            // dgvContractTemprature
+            // 
+            this.dgvContractTemprature.AllowUserToAddRows = false;
+            this.dgvContractTemprature.AllowUserToDeleteRows = false;
+            this.dgvContractTemprature.AllowUserToOrderColumns = true;
+            this.dgvContractTemprature.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvContractTemprature.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colDay,
+            this.colTemp});
+            this.dgvContractTemprature.Enabled = false;
+            this.dgvContractTemprature.Location = new System.Drawing.Point(6, 19);
+            this.dgvContractTemprature.Name = "dgvContractTemprature";
+            this.dgvContractTemprature.RowHeadersVisible = false;
+            this.dgvContractTemprature.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvContractTemprature.Size = new System.Drawing.Size(206, 197);
+            this.dgvContractTemprature.TabIndex = 0;
+            // 
+            // colDay
+            // 
+            this.colDay.HeaderText = "Dag";
+            this.colDay.Name = "colDay";
+            // 
+            // colTemp
+            // 
+            this.colTemp.HeaderText = "Temperatuur";
+            this.colTemp.Name = "colTemp";
             // 
             // Overview
             // 
@@ -223,6 +271,8 @@
             this.gbContractDetails.ResumeLayout(false);
             this.gbContractDetails.PerformLayout();
             this.gbContracts.ResumeLayout(false);
+            this.gbContractTemprature.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvContractTemprature)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -231,20 +281,24 @@
 
         private System.Windows.Forms.GroupBox gbContractDetails;
         private System.Windows.Forms.Label lblDetailsLoaner;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox tbDetailsLoaner;
         private System.Windows.Forms.Button btnDetailsExportHtml;
         private System.Windows.Forms.Button btnDetailsExportTxt;
         private System.Windows.Forms.Label lblDateTill;
         private System.Windows.Forms.Label lblDateFrom;
-        private System.Windows.Forms.DateTimePicker dtpDetailsFrom;
-        private System.Windows.Forms.DateTimePicker dtmDetailsTill;
+        private System.Windows.Forms.DateTimePicker dtpDetailsDateFrom;
+        private System.Windows.Forms.DateTimePicker dtpDetailsDateTill;
         private System.Windows.Forms.ListBox lbDetailsArticles;
         private System.Windows.Forms.Label lblDetailsArticles;
         private System.Windows.Forms.Label lblDetailsBoats;
         private System.Windows.Forms.ListBox lbDetailsBoats;
         private System.Windows.Forms.Label lblDetailsRenter;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbDetailsRenter;
         private System.Windows.Forms.GroupBox gbContracts;
         private System.Windows.Forms.ListBox lbContracts;
+        private System.Windows.Forms.GroupBox gbContractTemprature;
+        private System.Windows.Forms.DataGridView dgvContractTemprature;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDay;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colTemp;
     }
 }

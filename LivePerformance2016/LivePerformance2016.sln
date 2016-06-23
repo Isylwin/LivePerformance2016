@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LP2016Database", "LP2016Dat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LP2016Logic", "LP2016Logic\LP2016Logic.csproj", "{93FD0D20-FEB7-4E46-AF3A-EAC41D33D674}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LP2016Test", "LP2016Test\LP2016Test.csproj", "{F869B72F-402D-4797-9679-4DF83A7D3A32}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{93FD0D20-FEB7-4E46-AF3A-EAC41D33D674}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{93FD0D20-FEB7-4E46-AF3A-EAC41D33D674}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{93FD0D20-FEB7-4E46-AF3A-EAC41D33D674}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F869B72F-402D-4797-9679-4DF83A7D3A32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F869B72F-402D-4797-9679-4DF83A7D3A32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F869B72F-402D-4797-9679-4DF83A7D3A32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F869B72F-402D-4797-9679-4DF83A7D3A32}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
