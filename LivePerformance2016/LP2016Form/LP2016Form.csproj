@@ -97,6 +97,16 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LP2016Lib\LP2016Lib.csproj">
+      <Project>{84BB44AC-1D65-4A38-A639-B80EB838E82F}</Project>
+      <Name>LP2016Lib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LP2016Logic\LP2016Logic.csproj">
+      <Project>{93FD0D20-FEB7-4E46-AF3A-EAC41D33D674}</Project>
+      <Name>LP2016Logic</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
