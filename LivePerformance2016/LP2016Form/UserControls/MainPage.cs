@@ -172,6 +172,7 @@ namespace LP2016Form.UserControls
         {
             try
             {
+                //Get all the seas.
                 var waters = FetchRepository.Instance.GetAllWaters().FindAll(x => x.Type == WaterType.Sea);
 
                 //Only keep the waters that are ticked in the check boxes.
@@ -180,6 +181,7 @@ namespace LP2016Form.UserControls
                     waters.RemoveAll(x => x.Name == box.Text);
                 }
 
+                //Call the calculate helper.
                 var result = CalculatorUtil.CalculateLakes(dtpContractDateFrom.Value, dtpContractDateTill.Value,
                     lbContractBoats.Items.Cast<Boat>().ToList(), lbContractArticles.Items.Cast<Article>().ToList(),
                     nudContractBudget.Value, waters);
