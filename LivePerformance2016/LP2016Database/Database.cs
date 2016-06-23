@@ -94,7 +94,8 @@ namespace LP2016Database
         /// </summary>
         /// <param name="name">The name of the procedure.</param>
         /// <param name="parameters">The parameters for the procedure.</param>
-        public void ExecuteStoredProcedure(string name, List<OracleParameter> parameters)
+        /// <param name="type">The type of query.</param>
+        public OracleDataReader ExecuteStoredProcedure(string name, List<OracleParameter> parameters, QueryType type)
         {
             using (var command = new OracleCommand(PackageName + name, Connection) {CommandType = CommandType.StoredProcedure})
             {
@@ -103,9 +104,17 @@ namespace LP2016Database
                     command.Parameters.Add(param);
                 }
 
+                if (type == QueryType.Query)
+                    return command.ExecuteReader();
+
                 command.ExecuteNonQuery();
+                return null;
             }
         }
+
+        public OracleDataReader ExecuteStoredProcedure(string name, QueryType type)
+            => ExecuteStoredProcedure(name, new List<OracleParameter>(), type);
+
     }
 
     public enum QueryType

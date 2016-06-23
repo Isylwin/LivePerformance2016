@@ -11,11 +11,15 @@ namespace LP2016Database.Context
     {
         public void SaveRenter(Renter renter)
         {
-            const string query = "INSERT INTO RENTER(Name, Email) VALUES(:name, :email)";
+            const string spName = "SaveRenter";
 
-            var parameters = new Dictionary<string, object> {{":name", renter.Name}, {":email", renter.Email}};
+            var parameters = new List<OracleParameter>
+            {
+                new OracleParameter("p_name", renter.Name),
+                new OracleParameter("p_email", renter.Email)
+            };
 
-            Database.Instance.ExecuteQuery(query, parameters, QueryType.NonQuery);
+            Database.Instance.ExecuteStoredProcedure(spName, parameters, QueryType.NonQuery);
         }
 
         public void SaveContract(Contract contract)
@@ -61,7 +65,7 @@ namespace LP2016Database.Context
                 }
             };
 
-            Database.Instance.ExecuteStoredProcedure(spName, parameters);
+            Database.Instance.ExecuteStoredProcedure(spName, parameters, QueryType.NonQuery);
         }
     }
 }
