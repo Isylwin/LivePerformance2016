@@ -18,7 +18,7 @@ namespace LP2016Form.UserControls
             {
                 cbContractBoatType.Items.Add(type);
             }
-            cbContractBoatType.SelectedIndex = 0;
+            //cbContractBoatType.SelectedIndex = 0;
 
             RefreshAll();
         }
