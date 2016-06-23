@@ -93,7 +93,7 @@ namespace LP2016Database.Context
                     var type = (BoatType)Enum.Parse(typeof(BoatType), reader.GetString(3));
                     var boatClass = reader.GetString(4);
                     var price = reader.GetDecimal(5);
-                    var tank = reader.IsDBNull(6) ? reader.GetInt32(6) : 0;
+                    var tank = !reader.IsDBNull(6) ? reader.GetInt32(6) : 0;
                     var allowedIn = GetWaterFor(boatTypeId);
 
                     if(boatClass == "Muscleboat")
@@ -125,8 +125,8 @@ namespace LP2016Database.Context
                     var id = reader.GetInt32(0);
                     var name = reader.GetString(1);
                     var price = reader.GetDecimal(2);
-                    var limit = reader.IsDBNull(3) ? reader.GetInt32(3) : -1;
-                    var priceExtra = reader.IsDBNull(4) ? reader.GetDecimal(4) : 0;
+                    var limit = !reader.IsDBNull(3) ? reader.GetInt32(3) : -1;
+                    var priceExtra = !reader.IsDBNull(4) ? reader.GetDecimal(4) : 0;
                     var type = (WaterType) Enum.Parse(typeof (WaterType), reader.GetString(5));
 
                     ret.Add(new Water(id, name, price, type, limit, priceExtra));
@@ -183,7 +183,7 @@ namespace LP2016Database.Context
                     var type = (BoatType)Enum.Parse(typeof(BoatType), reader.GetString(3));
                     var boatClass = reader.GetString(4);
                     var price = reader.GetDecimal(5);
-                    var tank = reader.IsDBNull(6) ? reader.GetInt32(6) : 0;
+                    var tank = !reader.IsDBNull(6) ? reader.GetInt32(6) : 0;
                     var allowedIn = GetWaterFor(boatTypeId);
 
                     if (boatClass == "Muscleboat")
