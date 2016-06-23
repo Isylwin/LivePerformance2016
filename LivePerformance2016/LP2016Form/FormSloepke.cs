@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 using LP2016Form.UserControls;
 
 namespace LP2016Form
@@ -18,7 +10,24 @@ namespace LP2016Form
             InitializeComponent();
 
             tpMain.Controls.Add(new MainPage());
-            tpOverview.Controls.Add(new Overview());
+        }
+
+        private void tcMain_Selecting(object sender, TabControlCancelEventArgs e)
+        {
+            switch (e.TabPage.Name)
+            {
+                case "tpMain":
+                    tpMain.Controls.Add(new MainPage());
+                    break;
+                case "tpOverview":
+                    tpOverview.Controls.Add(new Overview());
+                    break;
+            }
+        }
+
+        private void tcMain_Deselecting(object sender, TabControlCancelEventArgs e)
+        {
+            e.TabPage.Controls.Clear();
         }
     }
 }

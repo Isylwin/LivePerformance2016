@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using LP2016Lib.Classes;
 using LP2016Lib.Enums;
 using LP2016Logic.Repositories;
+using LP2016Logic.Utilities;
 
 namespace LP2016Form.UserControls
 {
@@ -163,6 +164,33 @@ namespace LP2016Form.UserControls
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void btnCalculator_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var waters = FetchRepository.Instance.GetAllWaters().FindAll(x => x.Type == WaterType.Sea);
+
+                //Only keep the waters that are ticked in the check boxes.
+                foreach (var box in gbCalculator.Controls.Cast<object>().OfType<CheckBox>().Where(box => !box.Checked))
+                {
+                    waters.RemoveAll(x => x.Name == box.Text);
+                }
+
+                var result = CalculatorUtil.CalculateLakes(dtpContractDateFrom.Value, dtpContractDateTill.Value,
+                    lbContractBoats.Items.Cast<Boat>().ToList(), lbContractArticles.Items.Cast<Article>().ToList(), nudContractBudget.Value, waters);
+
+                lblContractResult.Text = result.ToString();
+            }
+            catch (Exception ex)
+            {
+                if (ex is NullReferenceException || ex is InvalidCastException)
+                    MessageBox.Show("Vul alle velden in.");
+                else
+                    MessageBox.Show(ex.Message);
+            }
+            
         }
     }
 }

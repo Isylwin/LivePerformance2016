@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using LP2016Lib.Classes;
+using LP2016Logic.Repositories;
+using LP2016Logic.Utilities;
 
 namespace LP2016Form.UserControls
 {
@@ -15,6 +11,67 @@ namespace LP2016Form.UserControls
         public Overview()
         {
             InitializeComponent();
+            PopulateContracts();
+        }
+
+        private void PopulateContracts()
+        {
+            try
+            {
+                lbContracts.Items.Clear();
+
+                var contracts = FetchRepository.Instance.GetAllContracts();
+
+                foreach (var contract in contracts)
+                {
+                    lbContracts.Items.Add(contract);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void lbContracts_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lbDetailsBoats.Items.Clear();
+            lbDetailsArticles.Items.Clear();
+
+            btnDetailsExportTxt.Enabled = lbContracts.SelectedItem != null;
+            btnDetailsExportHtml.Enabled = lbContracts.SelectedItem != null;
+
+            var contract = (Contract)lbContracts.SelectedItem;
+            var boats = contract.Items.FindAll(x => x is Boat);
+            var articles = contract.Items.FindAll(x => x is Article);
+
+            tbDetailsLoaner.Text = "'t Sloepke";
+            tbDetailsRenter.Text = contract.Renter.ToString();
+
+            boats.ForEach(x => lbDetailsBoats.Items.Add(x));
+            articles.ForEach(x => lbDetailsArticles.Items.Add(x));
+
+            dtpDetailsDateFrom.Value = contract.StartDate;
+            dtpDetailsDateTill.Value = contract.EndDate;
+        }
+
+        private void btnDetailsExportTxt_Click(object sender, EventArgs e)
+        {
+            var dialog = new SaveFileDialog();
+
+            try
+            {
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    ExportUtil.ExportContractToTxt(lbContracts.SelectedItem as Contract, dialog.FileName);
+                    MessageBox.Show("Succesvol opgeslagen.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
     }
 }

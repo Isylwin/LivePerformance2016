@@ -46,6 +46,8 @@
             this.tcMain.SelectedIndex = 0;
             this.tcMain.Size = new System.Drawing.Size(1068, 685);
             this.tcMain.TabIndex = 0;
+            this.tcMain.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tcMain_Selecting);
+            this.tcMain.Deselecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tcMain_Deselecting);
             // 
             // tpMain
             // 

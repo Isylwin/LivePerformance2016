@@ -70,6 +70,7 @@
             this.lblName = new System.Windows.Forms.Label();
             this.gbContractAddUser = new System.Windows.Forms.GroupBox();
             this.gbContract = new System.Windows.Forms.GroupBox();
+            this.btnCalculator = new System.Windows.Forms.Button();
             this.gbContractTemprature.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvContractTemprature)).BeginInit();
             this.gbContractArticles.SuspendLayout();
@@ -347,6 +348,7 @@
             // 
             // gbCalculator
             // 
+            this.gbCalculator.Controls.Add(this.btnCalculator);
             this.gbCalculator.Controls.Add(this.lblContractResult);
             this.gbCalculator.Controls.Add(this.lblContractLakes);
             this.gbCalculator.Controls.Add(this.chbContractIJselmeer);
@@ -355,7 +357,7 @@
             this.gbCalculator.Controls.Add(this.nudContractBudget);
             this.gbCalculator.Location = new System.Drawing.Point(659, 441);
             this.gbCalculator.Name = "gbCalculator";
-            this.gbCalculator.Size = new System.Drawing.Size(356, 153);
+            this.gbCalculator.Size = new System.Drawing.Size(356, 193);
             this.gbCalculator.TabIndex = 58;
             this.gbCalculator.TabStop = false;
             this.gbCalculator.Text = "Calculator";
@@ -363,7 +365,7 @@
             // lblContractResult
             // 
             this.lblContractResult.AutoSize = true;
-            this.lblContractResult.Location = new System.Drawing.Point(136, 127);
+            this.lblContractResult.Location = new System.Drawing.Point(113, 160);
             this.lblContractResult.Name = "lblContractResult";
             this.lblContractResult.Size = new System.Drawing.Size(13, 13);
             this.lblContractResult.TabIndex = 63;
@@ -372,7 +374,7 @@
             // lblContractLakes
             // 
             this.lblContractLakes.AutoSize = true;
-            this.lblContractLakes.Location = new System.Drawing.Point(26, 127);
+            this.lblContractLakes.Location = new System.Drawing.Point(17, 160);
             this.lblContractLakes.Name = "lblContractLakes";
             this.lblContractLakes.Size = new System.Drawing.Size(70, 13);
             this.lblContractLakes.TabIndex = 62;
@@ -503,6 +505,16 @@
             this.gbContract.TabStop = false;
             this.gbContract.Text = "Contract";
             // 
+            // btnCalculator
+            // 
+            this.btnCalculator.Location = new System.Drawing.Point(216, 155);
+            this.btnCalculator.Name = "btnCalculator";
+            this.btnCalculator.Size = new System.Drawing.Size(121, 23);
+            this.btnCalculator.TabIndex = 64;
+            this.btnCalculator.Text = "Bereken";
+            this.btnCalculator.UseVisualStyleBackColor = true;
+            this.btnCalculator.Click += new System.EventHandler(this.btnCalculator_Click);
+            // 
             // MainPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -572,5 +584,6 @@
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.GroupBox gbContractAddUser;
         private System.Windows.Forms.GroupBox gbContract;
+        private System.Windows.Forms.Button btnCalculator;
     }
 }
