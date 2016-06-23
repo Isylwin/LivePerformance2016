@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using LP2016Database.Context;
 using LP2016Database.Models;
 using LP2016Lib.Classes;
+using static LP2016Logic.Utilities.ExceptionUtil;
 
 namespace LP2016Logic.Repositories
 {
@@ -24,8 +25,9 @@ namespace LP2016Logic.Repositories
             {
                 return _context.GetAllRenters();
             }
-            catch (Exception)
-            {              
+            catch (Exception e)
+            {       
+                FilterOracleDatabaseException(e);       
                 throw;
             }
         }
@@ -36,9 +38,9 @@ namespace LP2016Logic.Repositories
             {
                 return _context.GetAllContracts();
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                
+                FilterOracleDatabaseException(e);
                 throw;
             }
         }
@@ -49,8 +51,9 @@ namespace LP2016Logic.Repositories
             {
                 return _context.GetAllArticles();
             }
-            catch (Exception)
-            {              
+            catch (Exception e)
+            {
+                FilterOracleDatabaseException(e);
                 throw;
             }
         }
@@ -61,8 +64,9 @@ namespace LP2016Logic.Repositories
             {
                 return _context.GetAllBoats();
             }
-            catch (Exception)
-            {               
+            catch (Exception e)
+            {
+                FilterOracleDatabaseException(e);
                 throw;
             }
         }
@@ -73,9 +77,9 @@ namespace LP2016Logic.Repositories
             {
                 return _context.GetAllWaters();
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                
+                FilterOracleDatabaseException(e);
                 throw;
             }
         } 

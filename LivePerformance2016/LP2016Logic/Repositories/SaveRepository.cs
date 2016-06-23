@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using LP2016Database.Context;
 using LP2016Database.Models;
 using LP2016Lib.Classes;
+using LP2016Logic.Exceptions;
+using static LP2016Logic.Utilities.ExceptionUtil;
 
 namespace LP2016Logic.Repositories
 {
@@ -28,8 +30,9 @@ namespace LP2016Logic.Repositories
                 
                 _context.SaveContract(contract);
             }
-            catch (Exception)
-            {               
+            catch (Exception e)
+            {
+                FilterOracleDatabaseException(e);
                 throw;
             }
         }
@@ -39,15 +42,15 @@ namespace LP2016Logic.Repositories
             try
             {
                 //TODO email check in a utility class and include here.
-                //TODO custom exceptions.
                 if(string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(email))
-                    throw new Exception("Naam of email is niet ingevuld.");
+                    throw new NullException("Naam of email is niet ingevuld.");
 
                 var renter = new Renter(name, email);
                 _context.SaveRenter(renter);
             }
-            catch (Exception)
-            {            
+            catch (Exception e)
+            {
+                FilterOracleDatabaseException(e);
                 throw;
             }
         }
