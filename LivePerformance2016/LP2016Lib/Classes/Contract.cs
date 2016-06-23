@@ -40,6 +40,7 @@ namespace LP2016Lib.Classes
             StartDate = startDate;
             EndDate = endDate;
             Renter = renter;
+            _items = new List<IRentable>();
         }
 
         /// <summary>
