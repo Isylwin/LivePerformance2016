@@ -32,8 +32,6 @@
             this.cbContractBoatType = new System.Windows.Forms.ComboBox();
             this.gbContractTemprature = new System.Windows.Forms.GroupBox();
             this.dgvContractTemprature = new System.Windows.Forms.DataGridView();
-            this.colDay = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTemp = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnContractArticleAdd = new System.Windows.Forms.Button();
             this.btnContractBoatAdd = new System.Windows.Forms.Button();
             this.cbContractArticle = new System.Windows.Forms.ComboBox();
@@ -57,6 +55,7 @@
             this.dtpContractDateTill = new System.Windows.Forms.DateTimePicker();
             this.lblContractRenter = new System.Windows.Forms.Label();
             this.gbCalculator = new System.Windows.Forms.GroupBox();
+            this.btnCalculator = new System.Windows.Forms.Button();
             this.lblContractResult = new System.Windows.Forms.Label();
             this.lblContractLakes = new System.Windows.Forms.Label();
             this.chbContractIJselmeer = new System.Windows.Forms.CheckBox();
@@ -70,7 +69,8 @@
             this.lblName = new System.Windows.Forms.Label();
             this.gbContractAddUser = new System.Windows.Forms.GroupBox();
             this.gbContract = new System.Windows.Forms.GroupBox();
-            this.btnCalculator = new System.Windows.Forms.Button();
+            this.colDay = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTemp = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbContractTemprature.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvContractTemprature)).BeginInit();
             this.gbContractArticles.SuspendLayout();
@@ -124,18 +124,9 @@
             this.dgvContractTemprature.Size = new System.Drawing.Size(281, 197);
             this.dgvContractTemprature.TabIndex = 0;
             // 
-            // colDay
-            // 
-            this.colDay.HeaderText = "Dag";
-            this.colDay.Name = "colDay";
-            // 
-            // colTemp
-            // 
-            this.colTemp.HeaderText = "Tempratuur";
-            this.colTemp.Name = "colTemp";
-            // 
             // btnContractArticleAdd
             // 
+            this.btnContractArticleAdd.Enabled = false;
             this.btnContractArticleAdd.Location = new System.Drawing.Point(345, 157);
             this.btnContractArticleAdd.Name = "btnContractArticleAdd";
             this.btnContractArticleAdd.Size = new System.Drawing.Size(107, 23);
@@ -146,6 +137,7 @@
             // 
             // btnContractBoatAdd
             // 
+            this.btnContractBoatAdd.Enabled = false;
             this.btnContractBoatAdd.Location = new System.Drawing.Point(11, 157);
             this.btnContractBoatAdd.Name = "btnContractBoatAdd";
             this.btnContractBoatAdd.Size = new System.Drawing.Size(107, 23);
@@ -163,6 +155,7 @@
             this.cbContractArticle.Name = "cbContractArticle";
             this.cbContractArticle.Size = new System.Drawing.Size(264, 21);
             this.cbContractArticle.TabIndex = 52;
+            this.cbContractArticle.SelectedIndexChanged += new System.EventHandler(this.cbContractArticle_SelectedIndexChanged);
             // 
             // cbContractBoatName
             // 
@@ -173,6 +166,7 @@
             this.cbContractBoatName.Name = "cbContractBoatName";
             this.cbContractBoatName.Size = new System.Drawing.Size(251, 21);
             this.cbContractBoatName.TabIndex = 51;
+            this.cbContractBoatName.SelectedIndexChanged += new System.EventHandler(this.cbContractBoatName_SelectedIndexChanged);
             // 
             // lblContractArticle
             // 
@@ -362,6 +356,16 @@
             this.gbCalculator.TabStop = false;
             this.gbCalculator.Text = "Calculator";
             // 
+            // btnCalculator
+            // 
+            this.btnCalculator.Location = new System.Drawing.Point(216, 155);
+            this.btnCalculator.Name = "btnCalculator";
+            this.btnCalculator.Size = new System.Drawing.Size(121, 23);
+            this.btnCalculator.TabIndex = 64;
+            this.btnCalculator.Text = "Bereken";
+            this.btnCalculator.UseVisualStyleBackColor = true;
+            this.btnCalculator.Click += new System.EventHandler(this.btnCalculator_Click);
+            // 
             // lblContractResult
             // 
             this.lblContractResult.AutoSize = true;
@@ -369,7 +373,7 @@
             this.lblContractResult.Name = "lblContractResult";
             this.lblContractResult.Size = new System.Drawing.Size(13, 13);
             this.lblContractResult.TabIndex = 63;
-            this.lblContractResult.Text = "5";
+            this.lblContractResult.Text = "0";
             // 
             // lblContractLakes
             // 
@@ -505,15 +509,15 @@
             this.gbContract.TabStop = false;
             this.gbContract.Text = "Contract";
             // 
-            // btnCalculator
+            // colDay
             // 
-            this.btnCalculator.Location = new System.Drawing.Point(216, 155);
-            this.btnCalculator.Name = "btnCalculator";
-            this.btnCalculator.Size = new System.Drawing.Size(121, 23);
-            this.btnCalculator.TabIndex = 64;
-            this.btnCalculator.Text = "Bereken";
-            this.btnCalculator.UseVisualStyleBackColor = true;
-            this.btnCalculator.Click += new System.EventHandler(this.btnCalculator_Click);
+            this.colDay.HeaderText = "Dag";
+            this.colDay.Name = "colDay";
+            // 
+            // colTemp
+            // 
+            this.colTemp.HeaderText = "Temperatuur";
+            this.colTemp.Name = "colTemp";
             // 
             // MainPage
             // 
@@ -546,8 +550,6 @@
         private System.Windows.Forms.ComboBox cbContractBoatType;
         private System.Windows.Forms.GroupBox gbContractTemprature;
         private System.Windows.Forms.DataGridView dgvContractTemprature;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colDay;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colTemp;
         private System.Windows.Forms.Button btnContractArticleAdd;
         private System.Windows.Forms.Button btnContractBoatAdd;
         private System.Windows.Forms.ComboBox cbContractArticle;
@@ -585,5 +587,7 @@
         private System.Windows.Forms.GroupBox gbContractAddUser;
         private System.Windows.Forms.GroupBox gbContract;
         private System.Windows.Forms.Button btnCalculator;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDay;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colTemp;
     }
 }

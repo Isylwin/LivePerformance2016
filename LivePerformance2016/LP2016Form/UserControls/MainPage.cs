@@ -131,9 +131,11 @@ namespace LP2016Form.UserControls
                 lbContractArticles.Items.Add(cbContractArticle.SelectedItem);
         }
 
-        private void dtpContractDateFrom_ValueChanged(object sender, EventArgs e) => dtpContractDateTill.MinDate = dtpContractDateFrom.Value;
+        private void dtpContractDateFrom_ValueChanged(object sender, EventArgs e)
+            => dtpContractDateTill.MinDate = dtpContractDateFrom.Value;
 
-        private void dtpContractDateTill_ValueChanged(object sender, EventArgs e) => dtpContractDateFrom.MaxDate = dtpContractDateTill.Value;
+        private void dtpContractDateTill_ValueChanged(object sender, EventArgs e)
+            => dtpContractDateFrom.MaxDate = dtpContractDateTill.Value;
 
         private void btnContractBoatRemove_Click(object sender, EventArgs e) =>
             lbContractBoats.Items.Remove(lbContractBoats.SelectedItem);
@@ -153,7 +155,7 @@ namespace LP2016Form.UserControls
             {
                 var startDate = dtpContractDateFrom.Value;
                 var endDate = dtpContractDateTill.Value;
-                var renter = (Renter)cbContractRenter.SelectedItem;
+                var renter = (Renter) cbContractRenter.SelectedItem;
                 var boats = lbContractBoats.Items.Cast<Boat>().ToList();
                 var articles = lbContractArticles.Items.Cast<Article>().ToList();
 
@@ -179,7 +181,8 @@ namespace LP2016Form.UserControls
                 }
 
                 var result = CalculatorUtil.CalculateLakes(dtpContractDateFrom.Value, dtpContractDateTill.Value,
-                    lbContractBoats.Items.Cast<Boat>().ToList(), lbContractArticles.Items.Cast<Article>().ToList(), nudContractBudget.Value, waters);
+                    lbContractBoats.Items.Cast<Boat>().ToList(), lbContractArticles.Items.Cast<Article>().ToList(),
+                    nudContractBudget.Value, waters);
 
                 lblContractResult.Text = result.ToString();
             }
@@ -190,7 +193,13 @@ namespace LP2016Form.UserControls
                 else
                     MessageBox.Show(ex.Message);
             }
-            
+
         }
+
+        private void cbContractBoatName_SelectedIndexChanged(object sender, EventArgs e)
+            => btnContractBoatAdd.Enabled = cbContractBoatName.SelectedItem != null;
+
+        private void cbContractArticle_SelectedIndexChanged(object sender, EventArgs e)
+            => btnContractArticleAdd.Enabled = cbContractArticle.SelectedItem != null;
     }
 }

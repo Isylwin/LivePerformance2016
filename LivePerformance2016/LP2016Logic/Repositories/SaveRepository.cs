@@ -24,6 +24,9 @@ namespace LP2016Logic.Repositories
         {
             try
             {
+                if(renter == null || boats.Count == 0 || articles.Count == 0)
+                    throw new NullException("Vul alle velden in.");
+
                 var contract = new Contract(startDate, endDate, renter);
                 boats.ForEach(x => contract.AddItem(x));
                 articles.ForEach(x => contract.AddItem(x));
