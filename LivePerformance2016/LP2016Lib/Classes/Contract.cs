@@ -35,12 +35,22 @@ namespace LP2016Lib.Classes
         /// <param name="startDate">The starting date of the rental period.</param>
         /// <param name="endDate">The ending date of the rental period.</param>
         /// <param name="renter">The renter.</param>
-        /// <param name="items">The items that are being rented out.</param>
-        public Contract(DateTime startDate, DateTime endDate, Renter renter, List<IRentable> items)
+        public Contract(DateTime startDate, DateTime endDate, Renter renter)
         {
             StartDate = startDate;
             EndDate = endDate;
             Renter = renter;
+        }
+
+        /// <summary>
+        /// Creates a new contract.
+        /// </summary>
+        /// <param name="startDate">The starting date of the rental period.</param>
+        /// <param name="endDate">The ending date of the rental period.</param>
+        /// <param name="renter">The renter.</param>
+        /// <param name="items">The items that are being rented out.</param>
+        public Contract(DateTime startDate, DateTime endDate, Renter renter, List<IRentable> items) : this(startDate, endDate, renter)
+        {      
             _items = items;
         }
 
@@ -56,6 +66,16 @@ namespace LP2016Lib.Classes
             : this(startDate, endDate, renter, items)
         {
             Id = id;
+        }
+
+        /// <summary>
+        /// Adds a item to the contract.
+        /// </summary>
+        /// <param name="item">The item.</param>
+        public void AddItem(IRentable item)
+        {
+            if (!_items.Contains(item))
+                _items.Add(item);
         }
 
         public override string ToString()
