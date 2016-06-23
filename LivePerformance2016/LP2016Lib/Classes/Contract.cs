@@ -81,7 +81,7 @@ namespace LP2016Lib.Classes
 
         public override string ToString()
         {
-            return $"{Renter.Name}: {StartDate.Date} - {EndDate.Date}";
+            return $"{Renter.Name}: {StartDate.Date.ToString("dd-MM-yyyy")} - {EndDate.Date.ToString("dd-MM-yyyy")}";
         }
     }
 }
