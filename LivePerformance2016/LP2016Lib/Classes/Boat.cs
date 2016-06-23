@@ -7,7 +7,7 @@ namespace LP2016Lib.Classes
     /// <summary>
     /// Boats can be rented within the livery.
     /// </summary>
-    public abstract class Boat : IRentable, ISaveable
+    public abstract class Boat : IRentable
     {
         private readonly List<Water> _allowedIn; 
 

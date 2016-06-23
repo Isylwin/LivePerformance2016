@@ -50,7 +50,6 @@
     <Compile Include="Enums\WaterType.cs" />
     <Compile Include="Enums\BoatType.cs" />
     <Compile Include="Interfaces\IRentable.cs" />
-    <Compile Include="Interfaces\ISaveable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

@@ -5,7 +5,7 @@ namespace LP2016Lib.Classes
     /// <summary>
     /// A customer of the livery.
     /// </summary>
-    public class Renter : ISaveable
+    public class Renter
     {
         public int Id { get; }
         /// <summary>

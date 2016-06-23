@@ -7,7 +7,7 @@ namespace LP2016Lib.Classes
     /// <summary>
     /// A rental contract that a renter can disclose with the livery.
     /// </summary>
-    public class Contract : ISaveable
+    public class Contract
     {
         private readonly List<IRentable> _items; 
 

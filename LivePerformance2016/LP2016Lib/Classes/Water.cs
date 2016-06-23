@@ -6,7 +6,7 @@ namespace LP2016Lib.Classes
     /// <summary>
     /// The different types of waters the renters from the livery could venture into.
     /// </summary>
-    public class Water : ISaveable
+    public class Water
     {
         public int Id { get; }
         /// <summary>

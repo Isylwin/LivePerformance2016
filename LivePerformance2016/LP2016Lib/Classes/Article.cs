@@ -5,7 +5,7 @@ namespace LP2016Lib.Classes
     /// <summary>
     /// Miscellanious articles that can be rented within the livery.
     /// </summary>
-    public class Article : IRentable, ISaveable
+    public class Article : IRentable
     {
         public int Id { get; }
         public string Name { get; }
