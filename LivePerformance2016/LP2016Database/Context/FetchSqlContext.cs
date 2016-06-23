@@ -93,7 +93,7 @@ namespace LP2016Database.Context
                     var type = (BoatType)Enum.Parse(typeof(BoatType), reader.GetString(3));
                     var boatClass = reader.GetString(4);
                     var price = reader.GetDecimal(5);
-                    var paysToll = reader.GetBoolean(6);
+                    var paysToll = Convert.ToBoolean(reader.GetInt32(6));
                     var tank = !reader.IsDBNull(7) ? reader.GetInt32(7) : 0;
                     var allowedIn = GetWaterFor(boatTypeId);
 
@@ -185,7 +185,7 @@ namespace LP2016Database.Context
                     var type = (BoatType)Enum.Parse(typeof(BoatType), reader.GetString(3));
                     var boatClass = reader.GetString(4);
                     var price = reader.GetDecimal(5);
-                    var paysToll = reader.GetBoolean(6);
+                    var paysToll = Convert.ToBoolean(reader.GetInt32(6));
                     var tank = !reader.IsDBNull(7) ? reader.GetInt32(7) : 0;
                     var allowedIn = GetWaterFor(boatTypeId);
 
