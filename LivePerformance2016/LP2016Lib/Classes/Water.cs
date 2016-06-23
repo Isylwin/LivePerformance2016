@@ -22,6 +22,10 @@ namespace LP2016Lib.Classes
         /// </summary>
         public WaterType Type { get; }
         /// <summary>
+        /// The max amount of the current water.
+        /// </summary>
+        public int Amount { get; }
+        /// <summary>
         /// If applicable, the limit for entering the water after which the price increases.
         /// </summary>
         public int Limit { get; }
@@ -37,13 +41,14 @@ namespace LP2016Lib.Classes
         /// <param name="name">The name of the water.</param>
         /// <param name="price">The price for entering the water.</param>
         /// <param name="type">The type of water.</param>
-        public Water(int id, string name, decimal price, WaterType type)
+        public Water(int id, string name, decimal price, WaterType type, int amount)
         {
             Id = id;
             Name = name;
             Price = price;
             Type = type;
             Limit = -1;
+            Amount = amount;
         }
 
         /// <summary>
@@ -55,7 +60,7 @@ namespace LP2016Lib.Classes
         /// <param name="type">The type of water.</param>
         /// <param name="limit">If applicable, the limit for entering the water after which the price increases.</param>
         /// <param name="priceExtra">If applicable, the extra price for entering the water after a certain limit.</param>
-        public Water(int id, string name, decimal price, WaterType type, int limit, decimal priceExtra) : this(id, name, price, type)
+        public Water(int id, string name, decimal price, WaterType type, int amount, int limit, decimal priceExtra) : this(id, name, price, type, amount)
         {
             Limit = limit;
             PriceExtra = priceExtra;

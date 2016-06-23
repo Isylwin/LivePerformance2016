@@ -14,6 +14,7 @@ namespace LP2016Lib.Classes
         public int Id { get; }
         public string Name { get; }
         public decimal Price { get; }
+        public bool PaysToll { get; }
         /// <summary>
         /// The type of the boat.
         /// </summary>
@@ -31,13 +32,15 @@ namespace LP2016Lib.Classes
         /// <param name="price">The price of the boat.</param>
         /// <param name="type">The type of the boat.</param>
         /// <param name="allowedIn">The types of water the boat is allowed in.</param>
-        protected Boat(int id, string name, decimal price, BoatType type, List<Water> allowedIn)
+        /// <param name="paysToll">Indicates wheter the boat pays toll for a gate.</param>
+        protected Boat(int id, string name, decimal price, BoatType type, List<Water> allowedIn, bool paysToll)
         {
             Id = id;
             Name = name;
             Price = price;
             Type = type;
             _allowedIn = allowedIn;
+            PaysToll = paysToll;
         }
 
         public override string ToString()

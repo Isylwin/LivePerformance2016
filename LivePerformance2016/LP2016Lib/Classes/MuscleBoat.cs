@@ -16,7 +16,8 @@ namespace LP2016Lib.Classes
         /// <param name="price">The price of the boat.</param>
         /// <param name="type">The type of the boat.</param>
         /// <param name="allowedIn">The waters the boat is allowed in.</param>
-        public MuscleBoat(int id, string name, decimal price, BoatType type, List<Water> allowedIn) : base(id, name, price, type, allowedIn)
+        /// <param name="paysToll">Indicates wheter a boat pays toll at a gate</param>
+        public MuscleBoat(int id, string name, decimal price, BoatType type, List<Water> allowedIn, bool paysToll) : base(id, name, price, type, allowedIn, paysToll)
         {
 
         }

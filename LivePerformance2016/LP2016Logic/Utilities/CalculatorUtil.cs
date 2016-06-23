@@ -24,8 +24,6 @@ namespace LP2016Logic.Utilities
         public static int CalculateLakes(DateTime startDate, DateTime endDate, List<Boat> boats, List<Article> articles,
             decimal budget, List<Water> waters)
         {
-            //TODO change canoe to a variable in the database.
-            //TODO give lakes an upper limit to it's lakes.
             //Get the lake that we want to calculate about.
             var lake = FetchRepository.Instance.GetAllWaters().Find(x => x.Type == WaterType.Lake);
 
@@ -37,7 +35,7 @@ namespace LP2016Logic.Utilities
             var articleCostPerDay = articles.Sum(x => x.Price);
 
             //Price for travelling through the gates per day.
-            var gatePricePerDay = boats.Exists(x => x.Type != BoatType.Canoe) ? waters.Sum(x => x.Price) : 0;
+            var gatePricePerDay = boats.Exists(x => x.PaysToll) ? waters.Sum(x => x.Price) : 0;
 
             //Calculates the total cost for rented the boats for all days and travelling over all the waters for all days.
             var totalItemCost = days*(boatsCostPerDay + articleCostPerDay);
@@ -46,8 +44,8 @@ namespace LP2016Logic.Utilities
             var remainder = budget - (totalItemCost + totalWaterCost);
 
             //If there are only boats that don't pay per gate and there's enough money for the rented stuff return the maximum amount.
-            if (remainder >= 0 && boats.TrueForAll(x => x.Type == BoatType.Canoe))
-                return 12;
+            if (remainder >= 0 && boats.TrueForAll(x => x.PaysToll))
+                return lake.Amount;
 
             int result;
 
@@ -62,8 +60,8 @@ namespace LP2016Logic.Utilities
                 result = (int) Math.Floor(remainder/(lake.Price*days));
 
             //Make sure the result is within bounds.
-            if (result > 12)
-                result = 12;
+            if (result > lake.Amount)
+                result = lake.Amount;
             if (result < 0)
                 result = 0;
 
