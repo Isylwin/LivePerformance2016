@@ -19,6 +19,10 @@ namespace LP2016Logic.Repositories
             _context = new FetchSqlContext();
         }
 
+        /// <summary>
+        /// Gets all the renters from the database.
+        /// </summary>
+        /// <returns>A list with all the renters.</returns>
         public List<Renter> GetAllRenters()
         {
             try
@@ -32,6 +36,10 @@ namespace LP2016Logic.Repositories
             }
         }
 
+        /// <summary>
+        /// Gets all the contracts from the database.
+        /// </summary>
+        /// <returns>A list of contracts.</returns>
         public List<Contract> GetAllContracts()
         {
             try
@@ -45,6 +53,10 @@ namespace LP2016Logic.Repositories
             }
         }
 
+        /// <summary>
+        /// Gets all the articles from the database.
+        /// </summary>
+        /// <returns>A list with all the articles.</returns>
         public List<Article> GetAllArticles()
         {
             try
@@ -58,6 +70,10 @@ namespace LP2016Logic.Repositories
             }
         }
 
+        /// <summary>
+        /// Gets all the boats from the database.
+        /// </summary>
+        /// <returns>A list with all the boats.</returns>
         public List<Boat> GetAllBoats()
         {
             try
@@ -71,6 +87,10 @@ namespace LP2016Logic.Repositories
             }
         }
 
+        /// <summary>
+        /// Gets all the waters from the database.
+        /// </summary>
+        /// <returns>A list with all the waters.</returns>
         public List<Water> GetAllWaters()
         {
             try

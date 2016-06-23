@@ -20,6 +20,14 @@ namespace LP2016Logic.Repositories
             _context = new SaveSqlContext();
         }
 
+        /// <summary>
+        /// Saves a contract to the database.
+        /// </summary>
+        /// <param name="startDate">The starting date of the contract.</param>
+        /// <param name="endDate">The end date of the contract.</param>
+        /// <param name="renter">The renter of the contract.</param>
+        /// <param name="boats">The boats that are being rented.</param>
+        /// <param name="articles">The articles that are being rented.</param>
         public void SaveContract(DateTime startDate, DateTime endDate, Renter renter, List<Boat> boats, List<Article> articles)
         {
             try
@@ -40,6 +48,11 @@ namespace LP2016Logic.Repositories
             }
         }
 
+        /// <summary>
+        /// Saves a renter to the database.
+        /// </summary>
+        /// <param name="name">The name of the renter.</param>
+        /// <param name="email">The email of the renter.</param>
         public void SaveRenter(string name, string email)
         {
             try
